@@ -108,13 +108,13 @@ class Game extends React.Component {
 
     return (
       <span>
-        <div class="heading">
+        <div className="heading">
           <h1>Tic-Tac-Toe</h1>
         </div>
 
         <div className="game">
           <div className="game-info">
-            <div class="status">{status}</div>
+            <div className="status">{status}</div>
             <ol>{moves}</ol>
           </div>
           
