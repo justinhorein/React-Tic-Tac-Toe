@@ -10,6 +10,26 @@ function Square(props) {
   )
 }
 
+class DayNight extends React.Component {
+
+    switch() {
+      let body = document.querySelector("body");
+      let head = document.querySelector(".heading");
+      let game = document.querySelector(".game-info");
+      
+      body.classList.toggle("bw");
+      // head.classList.toggle("wb");
+      game.classList.toggle("border")
+    }
+
+    render (){
+      return(
+      <button className="DayNight" onClick={() => this.switch()}>
+      </button>
+      )
+    }
+}
+
 class Board extends React.Component {
 
   renderSquare(i) {
@@ -110,6 +130,7 @@ class Game extends React.Component {
       <span>
         <div className="heading">
           <h1>Tic-Tac-Toe</h1>
+          <DayNight></DayNight>
         </div>
 
         <div className="game">

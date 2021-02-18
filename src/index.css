@@ -5,6 +5,15 @@ body {
 body {
   margin: 0px;
   height: 100px;
+  color: white;
+  background: black;
+  border-bottom: solid white;
+}
+
+.bw {
+  color: black;
+  background: white;
+  border-bottom: solid black;
 }
 
 ol, ul {
@@ -16,9 +25,7 @@ li {
 }
 
 .heading {
-  background: black;
-  color: white;
-  padding: 10px 25px 10px 25px;
+  padding: 10px 25px 0px 25px;
 }
 
 .board-row:after {
@@ -70,6 +77,11 @@ li {
   justify-content: flex-start;
   padding: 25px;
   padding-top: 5%;
+  border-right: solid white;
+  height: 100%;
+}
+
+.border {
   border-right: solid black;
   height: 100%;
 }
