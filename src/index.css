@@ -25,7 +25,21 @@ li {
 }
 
 .heading {
-  padding: 10px 25px 0px 25px;
+  padding: 10px 25px 15px 25px;
+  display: inline-block;
+}
+
+.DayNight {
+  height: 60px;
+  width: 60px;
+  border-radius: 2.5em;
+  border: none;
+  position: absolute;
+  right: 6%;
+  top: 20px;
+  display: inline-block;
+  opacity: 100%;
+
 }
 
 .board-row:after {
