@@ -39,7 +39,11 @@ li {
   top: 20px;
   display: inline-block;
   opacity: 100%;
+}
 
+.icon {
+  
+  color: black;
 }
 
 .board-row:after {

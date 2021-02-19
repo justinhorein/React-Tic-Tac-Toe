@@ -1,6 +1,53 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faSun, faMoon)
+
+function SunMoon(props) {
+
+    return(
+          <FontAwesomeIcon icon={props.value} className="icon" size="2x"></FontAwesomeIcon>
+    )
+} 
+class DayNight extends React.Component {
+
+    renderSM(v=faMoon){
+      return(
+        <SunMoon value={v} />
+      )
+    }
+
+    switch() {
+      // Toggle Page
+      let body = document.querySelector("body");
+      let game = document.querySelector(".game-info");
+      
+      body.classList.toggle("bw");
+      game.classList.toggle("border");
+
+      // Toggle Icon
+      let c = document.querySelector("body")
+
+      console.log(c.classList[0])
+      if (c.classList[0] !== "bw"){
+        // re-render SunMoon
+        this.render("faSun")
+      }
+    }
+
+    render (v){
+      // Render initial Icon
+      return(
+      <button className="DayNight" onClick={() => this.switch()}>
+        {this.renderSM(v)}
+      </button>
+      )
+    }
+}
 
 function Square(props) {
   return (
@@ -8,26 +55,6 @@ function Square(props) {
       {props.value}
     </button>
   )
-}
-
-class DayNight extends React.Component {
-
-    switch() {
-      let body = document.querySelector("body");
-      let head = document.querySelector(".heading");
-      let game = document.querySelector(".game-info");
-      
-      body.classList.toggle("bw");
-      // head.classList.toggle("wb");
-      game.classList.toggle("border")
-    }
-
-    render (){
-      return(
-      <button className="DayNight" onClick={() => this.switch()}>
-      </button>
-      )
-    }
 }
 
 class Board extends React.Component {
@@ -130,6 +157,7 @@ class Game extends React.Component {
       <span>
         <div className="heading">
           <h1>Tic-Tac-Toe</h1>
+          
           <DayNight></DayNight>
         </div>
 
