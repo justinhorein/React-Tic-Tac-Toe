@@ -14,8 +14,14 @@ function SunMoon(props) {
     )
 } 
 class DayNight extends React.Component {
+      constructor() {
+        super()
+        this.state = {          
+          sunmoon: faSun
+        };
+      }
 
-    renderSM(v=faMoon){
+    renderSM(v){
       return(
         <SunMoon value={v} />
       )
@@ -32,10 +38,11 @@ class DayNight extends React.Component {
       // Toggle Icon
       let c = document.querySelector("body")
 
-      console.log(c.classList[0])
-      if (c.classList[0] !== "bw"){
+      if (c.classList[0] === "bw"){
         // re-render SunMoon
-        this.render("faSun")
+        this.setState({sunmoon:faMoon})
+      } else {
+        this.setState({sunmoon:faSun})
       }
     }
 
@@ -43,7 +50,7 @@ class DayNight extends React.Component {
       // Render initial Icon
       return(
       <button className="DayNight" onClick={() => this.switch()}>
-        {this.renderSM(v)}
+        {this.renderSM(this.state.sunmoon)}
       </button>
       )
     }
@@ -156,8 +163,7 @@ class Game extends React.Component {
     return (
       <span>
         <div className="heading">
-          <h1>Tic-Tac-Toe</h1>
-          
+          <h1>Tic-Tac-Toe</h1>         
           <DayNight></DayNight>
         </div>
 
