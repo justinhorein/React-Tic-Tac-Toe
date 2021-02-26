@@ -16,6 +16,11 @@ body {
   border-bottom: solid black;
 }
 
+.wb {
+  color: white;
+  background-color: black;
+}
+
 ol, ul {
   padding-left: 30px;
 }
@@ -26,7 +31,9 @@ li {
 
 .heading {
   padding: 10px 25px 15px 25px;
-  display: inline-block;
+  /* display: inline-flexbox;
+  flex-direction: column;
+  align-self: flex-start; */
 }
 
 .DayNight {
@@ -35,15 +42,19 @@ li {
   border-radius: 2.5em;
   border: none;
   position: absolute;
-  right: 6%;
+  right: 5%;
   top: 20px;
-  display: inline-block;
-  opacity: 100%;
 }
 
-.icon {
-  
-  color: black;
+.ResetGame {
+  height: 60px;
+  width: 60px;
+  border-radius: 2.5em;
+  border: none;
+  position: absolute;
+  right: 40px;  
+  top: 20px;
+  margin-right: 10%;
 }
 
 .board-row:after {

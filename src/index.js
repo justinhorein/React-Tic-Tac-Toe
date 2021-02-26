@@ -10,23 +10,28 @@ library.add(faSun, faMoon)
 function SunMoon(props) {
 
     return(
-          <FontAwesomeIcon icon={props.value} className="icon" size="2x"></FontAwesomeIcon>
+          <FontAwesomeIcon icon={props.value} className="icon" size="2x" color={props.color}></FontAwesomeIcon>
     )
 } 
 class DayNight extends React.Component {
       constructor() {
         super()
         this.state = {          
-          sunmoon: faSun
+          sunmoon: faSun,
+          color: "black"
         };
       }
 
     switch() {
       // Toggle Page
       let body = document.querySelector("body");
+      let reset = document.querySelector(".ResetGame");
+      let dn = document.querySelector(".DayNight");
       let game = document.querySelector(".game-info");
       
       body.classList.toggle("bw");
+      reset.classList.toggle("wb");
+      dn.classList.toggle("wb");
       game.classList.toggle("border");
 
       // Toggle Icon
@@ -34,9 +39,9 @@ class DayNight extends React.Component {
 
       if (c.classList[0] === "bw"){
         // re-render SunMoon
-        this.setState({sunmoon:faMoon})
+        this.setState({sunmoon:faMoon, color: "white"})
       } else {
-        this.setState({sunmoon:faSun})
+        this.setState({sunmoon:faSun, color: "black"})
       }
     }
 
@@ -44,11 +49,21 @@ class DayNight extends React.Component {
       // Render initial Icon
       return(
       <button className="DayNight" onClick={() => this.switch()}>
-        <SunMoon value={this.state.sunmoon} />
+        <SunMoon value={this.state.sunmoon} color={this.state.color}/>
       </button>
       )
     }
 }
+
+function ResetGame(props) {
+
+  return (
+    <button className="ResetGame" onClick={props.onClick}>
+      Reset
+    </button>
+  )
+  }
+
 
 function Square(props) {
   return (
@@ -131,6 +146,19 @@ class Game extends React.Component {
     })
   }
 
+  clear() {
+    this.setState({
+    history: [{
+      squares: Array(9).fill(null),
+    }],
+    stepNumber: 0,
+    xIsNext: true,
+  });
+
+    // Update UI
+
+  }
+
   render() {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
@@ -157,7 +185,9 @@ class Game extends React.Component {
     return (
       <span>
         <div className="heading">
-          <h1>Tic-Tac-Toe</h1>         
+          <h1>Tic-Tac-Toe</h1>
+          <ResetGame onClick={() => this.clear()}
+          />     
           <DayNight></DayNight>
         </div>
 
