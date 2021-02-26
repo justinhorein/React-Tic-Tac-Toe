@@ -21,12 +21,6 @@ class DayNight extends React.Component {
         };
       }
 
-    renderSM(v){
-      return(
-        <SunMoon value={v} />
-      )
-    }
-
     switch() {
       // Toggle Page
       let body = document.querySelector("body");
@@ -50,7 +44,7 @@ class DayNight extends React.Component {
       // Render initial Icon
       return(
       <button className="DayNight" onClick={() => this.switch()}>
-        {this.renderSM(this.state.sunmoon)}
+        <SunMoon value={this.state.sunmoon} />
       </button>
       )
     }
