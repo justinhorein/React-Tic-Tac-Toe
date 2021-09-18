@@ -28,6 +28,7 @@ class DayNight extends React.Component {
       let reset = document.querySelector(".ResetGame");
       let dn = document.querySelector(".DayNight");
       let game = document.querySelector(".game-info");
+      let squares = document.querySelectorAll("button.square");
       
       body.classList.toggle("bw");
       reset.classList.toggle("wb");
@@ -40,8 +41,16 @@ class DayNight extends React.Component {
       if (c.classList[0] === "bw"){
         // re-render SunMoon
         this.setState({sunmoon:faMoon, color: "white"})
+        squares.forEach((s) => {
+          s.style.backgroundColor = "black";
+          s.style.color = "white";
+        })
       } else {
-        this.setState({sunmoon:faSun, color: "black"})
+        this.setState({sunmoon:faSun, color: "black"});
+        squares.forEach((s) => {
+          s.style.backgroundColor = "white";
+          s.style.color = "black";
+        })
       }
     }
 
